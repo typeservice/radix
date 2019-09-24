@@ -24,7 +24,7 @@ export type RadixOptions = Router.Config<HttpVersion[keyof HttpVersion]>;
 export interface Context<T = HttpVersion['HTTP1']> {
   req: T extends HttpVersion['HTTP1'] ? Http.IncomingMessage : HTTP2.Http2ServerRequest,
   res: T extends HttpVersion['HTTP1'] ? Http.ServerResponse : HTTP2.Http2ServerResponse,
-  method: Router.HTTPMethod,
+  method: Router.HTTPMethod | string,
   url: string,
   headers: T extends HttpVersion['HTTP1'] ? Http.IncomingHttpHeaders : HTTP2.IncomingHttpHeaders,
   query?: { 
