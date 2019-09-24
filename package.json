@@ -1,0 +1,51 @@
+{
+  "name": "@typeservice/radix",
+  "version": "1.0.0",
+  "description": "crazy lightweight and power radix router for any service which like koa",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/typeservice/radix.git"
+  },
+  "scripts": {
+    "dev": "ts-node test/index.ts",
+    "build": "rm -rf dist/ && tsc -d",
+    "test": "jest --detectOpenHandles",
+    "test:coverage": "rm -rf coverage/ && nyc jest --detectOpenHandles --forceExit --coverage",
+    "test:report": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
+  },
+  "keywords": [
+    "typeservice",
+    "koa",
+    "radix",
+    "router"
+  ],
+  "files": [
+    "dist"
+  ],
+  "author": "cevio",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/typeservice/radix/issues"
+  },
+  "homepage": "https://github.com/typeservice/radix#readme",
+  "devDependencies": {
+    "@types/jest": "^24.0.18",
+    "@types/koa": "^2.0.49",
+    "@typeservice/koa": "^1.0.2",
+    "axios": "^0.19.0",
+    "codecov": "^3.6.0",
+    "jest": "^24.9.0",
+    "nyc": "^14.1.1",
+    "ts-jest": "^24.1.0",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.6.3"
+  },
+  "dependencies": {
+    "find-my-way": "^2.1.1",
+    "globby": "^10.0.1",
+    "inversify": "^5.0.1",
+    "is-class": "0.0.8",
+    "reflect-metadata": "^0.1.13"
+  }
+}
