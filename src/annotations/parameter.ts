@@ -48,6 +48,10 @@ export const File = functionalParameterResolver((ctx, ...keys: (string | number)
 export const Params = parameterResolver(ctx => ctx.params);
 export const Param = functionalParameterResolver((ctx, name: string) => ctx.params[name]);
 export const Cookie = parameterResolver(ctx => ctx.cookies);
+export const Method = parameterResolver(ctx => ctx.method);
+export const Url = parameterResolver(ctx => ctx.url);
+export const States = parameterResolver(ctx => ctx.state);
+export const State = functionalParameterResolver((ctx, ...keys: (string | number)[]) => reduceData(ctx.state || {}, ...keys));
 
 export function parameterResolver<T extends Context = Context>(fn: (ctx: T) => any): ParameterDecorator {
   return (target, property, index) => {

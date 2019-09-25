@@ -47,6 +47,7 @@ export interface Context<T = HttpVersion['HTTP1']> {
   body?: any,
   status?: number,
   cookies?: Cookies,
+  state?: any,
 }
 
 export default class Radix<T extends HttpVersion[keyof HttpVersion] = HttpVersion['HTTP1']> {
