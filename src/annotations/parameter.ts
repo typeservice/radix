@@ -49,7 +49,7 @@ export const Params = parameterResolver(ctx => ctx.params);
 export const Param = functionalParameterResolver((ctx, name: string) => ctx.params[name]);
 export const Cookie = parameterResolver(ctx => ctx.cookies);
 
-export function parameterResolver(fn: (ctx: Context) => any): ParameterDecorator {
+export function parameterResolver<T extends Context = Context>(fn: (ctx: T) => any): ParameterDecorator {
   return (target, property, index) => {
     const obj = target.constructor.prototype[property];
     const meta = ParameterMetaData.bind(obj);
@@ -57,12 +57,12 @@ export function parameterResolver(fn: (ctx: Context) => any): ParameterDecorator
   }
 }
 
-export function functionalParameterResolver(fn: (ctx: Context, ...args: any[]) => any) {
+export function functionalParameterResolver<T extends Context = Context>(fn: (ctx: T, ...args: any[]) => any) {
   return (...args: any[]): ParameterDecorator => {
     return (target, property, index) => {
       const obj = target.constructor.prototype[property];
       const meta = ParameterMetaData.bind(obj);
-      meta.set(index, (ctx: Context) => {
+      meta.set(index, (ctx: T) => {
         return fn(ctx, ...args);
       })
     }
