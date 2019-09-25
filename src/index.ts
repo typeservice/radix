@@ -4,6 +4,7 @@ import * as Http from 'http';
 import * as HTTP2 from 'http2';
 import * as Router from 'find-my-way';
 import * as globby from 'globby';
+import * as Cookies from 'cookies';
 import { RequireFileWithDefault } from '@typeservice/core';
 import { Container, interfaces } from 'inversify';
 import { HttpAnnotationResolver } from './annotations/http';
@@ -45,6 +46,7 @@ export interface Context<T = HttpVersion['HTTP1']> {
   },
   body?: any,
   status?: number,
+  cookies?: Cookies,
 }
 
 export default class Radix<T extends HttpVersion[keyof HttpVersion] = HttpVersion['HTTP1']> {

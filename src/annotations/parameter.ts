@@ -47,8 +47,9 @@ export const Files = parameterResolver(ctx => ctx.request.files);
 export const File = functionalParameterResolver((ctx, ...keys: (string | number)[]) => reduceData(ctx.request.files || {}, ...keys));
 export const Params = parameterResolver(ctx => ctx.params);
 export const Param = functionalParameterResolver((ctx, name: string) => ctx.params[name]);
+export const Cookie = parameterResolver(ctx => ctx.cookies);
 
-function parameterResolver(fn: (ctx: Context) => any): ParameterDecorator {
+export function parameterResolver(fn: (ctx: Context) => any): ParameterDecorator {
   return (target, property, index) => {
     const obj = target.constructor.prototype[property];
     const meta = ParameterMetaData.bind(obj);
@@ -56,7 +57,7 @@ function parameterResolver(fn: (ctx: Context) => any): ParameterDecorator {
   }
 }
 
-function functionalParameterResolver(fn: (ctx: Context, ...args: any[]) => any) {
+export function functionalParameterResolver(fn: (ctx: Context, ...args: any[]) => any) {
   return (...args: any[]): ParameterDecorator => {
     return (target, property, index) => {
       const obj = target.constructor.prototype[property];

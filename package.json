@@ -1,6 +1,6 @@
 {
   "name": "@typeservice/radix",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "crazy lightweight and power radix router for any service which like koa",
   "main": "dist/index.js",
   "repository": {
@@ -42,6 +42,7 @@
     "typescript": "^3.6.3"
   },
   "dependencies": {
+    "cookies": "^0.7.3",
     "find-my-way": "^2.1.1",
     "globby": "^10.0.1",
     "inversify": "^5.0.1",
