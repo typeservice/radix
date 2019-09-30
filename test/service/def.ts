@@ -16,7 +16,8 @@ export default class DEF {
     @http.Header('content-type') h: string,
     @http.Param('abc') i: string,
     @http.Data('aa') k: any,
-    @http.File('bb') l: any
+    @http.File('bb') l: any,
+    @http.Ctx n: Context,
   ) {
     return 'hello world - ' + (Number(a) + Number(b));
   }

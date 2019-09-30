@@ -1,6 +1,6 @@
 {
   "name": "@typeservice/radix",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "crazy lightweight and power radix router for any service which like koa",
   "main": "dist/index.js",
   "repository": {
@@ -12,7 +12,7 @@
     "build": "rm -rf dist/ && tsc -d",
     "test": "jest --detectOpenHandles",
     "test:coverage": "rm -rf coverage/ && nyc jest --detectOpenHandles --forceExit --coverage",
-    "test:report": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
+    "test:report": "nyc report --reporter=text-lcov > coverage.lcov && codecov --token=c13d9473-43a3-4eb4-a177-e8f40d3aca04"
   },
   "keywords": [
     "typeservice",

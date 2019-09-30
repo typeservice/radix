@@ -9,6 +9,7 @@ import { RequireFileWithDefault } from '@typeservice/core';
 import { Container, interfaces } from 'inversify';
 import { HttpAnnotationResolver } from './annotations/http';
 import * as http from './annotations/http';
+import * as Koa from 'koa';
 const isClass = require('is-class');
 
 export {
